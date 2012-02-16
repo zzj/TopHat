@@ -86,11 +86,10 @@ AlignStatus::AlignStatus(const BowtieHit& bh, const JunctionSet& gtf_junctions)
 bool AlignStatus::operator<(const AlignStatus& rhs) const
 {
   if (rhs._aligned != _aligned) return rhs._aligned;
-  if (rhs._edit_dist!=_edit_dist)
-      return rhs._edit_dist < _edit_dist;
+
   //int lhs_value = _aligned ? 1 : 0;
 	int lhs_value = _indelFreeAlignment ? 4 : 0;
-	lhs_value += _unannotatedSpliceFreeAlignment ? 2 : 0;
+
 
 	//int rhs_value = rhs._aligned ? 1 : 0;
 	int rhs_value = rhs._indelFreeAlignment ? 4 : 0;
